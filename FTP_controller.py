@@ -43,7 +43,7 @@ class ftp_controller:
             if(self.server_platform != 'Linux'):
                 files.append(line)
                 return
-            if(self.hidden_files is True or line.split()[8][0] is not '.') or ignore_hidden_files_flag == True:
+            if(self.hidden_files == True or line.split()[8][0] != '.') or ignore_hidden_files_flag == True:
                 files.append(line)
         self.ftp.dir(dir_callback)
         return files
@@ -89,8 +89,8 @@ class ftp_controller:
         self.ftp.sendcmd('RNTO '+ rename_to)    
 
     def move_dir(self, rename_from, rename_to, status_command, replace_command):
-        if(self.is_there(rename_to) is True):
-            if(replace_command(rename_from, 'File/Folder exists in destination folder') is True):
+        if(self.is_there(rename_to) == True):
+            if(replace_command(rename_from, 'File/Folder exists in destination folder') == True):
                 self.delete_dir(rename_to, status_command)
             else:
                 return
@@ -178,7 +178,7 @@ class ftp_controller:
         self.bytes_uploaded = 0
         #Check if the file is already present in ftp server
         if(self.is_there(file_name)):
-            if(replace_command(file_name, 'File exists in destination folder') is False):
+            if(replace_command(file_name, 'File exists in destination folder') == False):
                 return
         #Try to open file, if fails return
         try:

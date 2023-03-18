@@ -1,7 +1,7 @@
 
 #    Custom file dialogs for whipFTP, Copyrights tcotidiane and Jean didier,
 
-
+import sys
 import os
 from os.path import expanduser
 from os import listdir

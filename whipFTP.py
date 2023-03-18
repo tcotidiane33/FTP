@@ -6,7 +6,7 @@
 #        Arc theme (modified to red color and more styles were added) : https://wiki.tcl.tk/48689
 #        TkDND : https://sourceforge.net/projects/tkdnd/
 #
-
+import sys
 import os
 from os.path import isfile, join
 import threading

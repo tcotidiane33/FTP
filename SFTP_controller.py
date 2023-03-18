@@ -47,7 +47,7 @@ class sftp_controller:
     def get_detailed_file_list(self, ignore_hidden_files_flag = False):
         files = []
         for attr in self.ftp.listdir_attr():
-            if(self.hidden_files is True or str(attr).split()[8][0] is not '.') or ignore_hidden_files_flag == True:
+            if(self.hidden_files == True or str(attr).split()[8][0] != '.') or ignore_hidden_files_flag == True:
                 files.append(str(attr))
         return files
 
@@ -91,7 +91,7 @@ class sftp_controller:
 
     def move_dir(self, rename_from, rename_to, status_command, replace_command):
         if(self.is_there(rename_to) is True):
-            if(replace_command(rename_from, 'File/Folder exists in destination folder') is True):
+            if(replace_command(rename_from, 'File/Folder exists in destination folder') == True):
                 self.delete_dir(rename_to, status_command)
             else:
                 return
@@ -223,7 +223,7 @@ class sftp_controller:
             status_command(ftp_file_name, str(min(round((transferred/file_size) * 100, 8), 100))+'%')
         #Check if the file is already present in local directory
         if(isfile(ftp_file_name)):
-            if(replace_command(ftp_file_name, 'File exists in destination folder') is False):
+            if(replace_command(ftp_file_name, 'File exists in destination folder') == False):
                 return
         #Try to download file
         try:
