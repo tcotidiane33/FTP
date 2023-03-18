@@ -21,7 +21,7 @@ from TkDND_wrapper import *
 import whipFTP_ToolbarButton as ToolbarButton
 import whipFTP_FileDialogs as Filedialogs
 import platform
-if(platform.system() is 'Windows'):
+if(platform.system() == 'Windows'):
     import ctypes
 
 
@@ -438,7 +438,7 @@ class app:
         self.rect_id = self.canvas.create_rectangle(-1, -1, -1, -1, fill = '', outline = '')
         #Draw icons
         #If there are no files, draw watermark
-        if len(self.file_list) is 0:
+        if len(self.file_list) == 0:
             self.canvas.create_image(self.canvas_width/2, self.canvas_height/2, image = self.whipFTP_glow_icon)
         for file_name, file_details in zip(self.file_list, self.detailed_file_list):
             if((x+1)*self.cell_width > self.canvas_width):
@@ -504,7 +504,7 @@ class app:
         self.canvas.itemconfig(self.rect_id, outline = '')
         self.canvas.coords(self.rect_id, -1, -1, -1, -1) 
         #Display message in status bar in black color only if change_status is true else ignore it
-        if self.change_status is True:
+        if self.change_status == True:
             self.status_label.configure(style = 'TLabel')
             self.current_status.set(message)
 
@@ -513,7 +513,7 @@ class app:
         self.canvas.itemconfig(self.rect_id, outline = '')
         self.canvas.coords(self.rect_id, -1, -1, -1, -1) 
         #Display message in status bar in red color only if change_status is true else ignore it
-        if self.change_status is True:
+        if self.change_status == True:
             self.status_label.configure(style = 'Red.TLabel')
             self.current_status.set(message)
             self.problem()
@@ -663,7 +663,7 @@ class app:
         #Update GUI now, before mainloop, the following code takes a long time to execute
         self.master.update_idletasks() 
         try:
-            if(self.search_performed is False):
+            if(self.search_performed == False):
                 self.ftpController.ftp.cwd('..')
             self.update_file_list()     
         except:
@@ -674,7 +674,7 @@ class app:
 
     def file_properties_window(self):
         #Check number of files selected
-        if(len(self.selected_file_indices) is not 1): return
+        if(len(self.selected_file_indices) != 1): return
         #Create the string that contains all the properties
         for key in self.selected_file_indices:
             file_details = self.ftpController.get_properties(self.detailed_file_list[key])
@@ -1086,20 +1086,20 @@ class app:
 
     def ask_replace(self, file_name, status):
         #Check if replace all has been selected
-        if(self.replace_all is True): return True
+        if(self.replace_all == True): return True
         #Check if skip all has been selected
-        if(self.skip_all is True): return False
+        if(self.skip_all == True): return False
         #Create replace dialog
         self.replace_window = Filedialogs.replace_dialog(self.console_window.console_dialog_window, 'Conflicting files', self.copy_icon, file_name+': '+status+', Replace?')
         #Loop till a button is pressed
-        while self.replace_window.command is '':
+        while self.replace_window.command == '':
             self.replace_window.replace_dialog_window.update()
-        if (self.replace_window.command is 'skip'): return False
-        elif (self.replace_window.command is 'replace'): return True
-        elif (self.replace_window.command is 'skip_all'):
+        if (self.replace_window.command == 'skip'): return False
+        elif (self.replace_window.command == 'replace'): return True
+        elif (self.replace_window.command == 'skip_all'):
             self.skip_all = True            
             return False 
-        elif (self.replace_window.command is 'replace_all'):
+        elif (self.replace_window.command == 'replace_all'):
             self.replace_all = True            
             return True
 
@@ -1161,8 +1161,8 @@ class app:
         self.canvas.bind("<Motion>", self.update_status_and_mouse)
 
     def start_wait(self, event = None):
-        if(self.change_status is False): return
-        if(self.continue_wait is True):
+        if(self.change_status == False): return
+        if(self.continue_wait == True):
             self.continue_wait = False
             return
         self.disable_toolbar()
@@ -1174,7 +1174,7 @@ class app:
         self.continue_wait = True
 
     def do_wait(self, event = None):
-        if(self.wait_anim is False): return
+        if(self.wait_anim == False): return
         #make sure frame index is not above 4
         if(self.wait_frame_index == 4):
             self.wait_frame_index = 0
@@ -1202,7 +1202,7 @@ class app:
 
 #Program entry point
 #Tell windows not to DPI scale this application
-if(platform.system() is 'Windows' and platform.release() != '7'):
+if(platform.system() == 'Windows' and platform.release() != '7'):
     ctypes.windll.shcore.SetProcessDpiAwareness(2)
 #Create root window
 root = Tk()
