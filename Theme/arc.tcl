@@ -3,7 +3,7 @@
 # Arc pixmap theme for the ttk package.
 #
 #  Copyright (c) 2015 Sergei Golovan <sgolovan@nes.ru>
-
+#
 #
 # Modifications made:   Changed the base color to #e26652
 #                       Styled Combobox menu to fit the theme

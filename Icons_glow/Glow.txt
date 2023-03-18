@@ -1,2 +1,3 @@
 Move icon up by 2 pixels.
 Increase brightness to 50.
+big_glow 8.

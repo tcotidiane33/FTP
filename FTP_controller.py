@@ -1,4 +1,4 @@
-#whipFTP, Copyrights Vishnu Shankar B,
+#whipFTP, Copyrights  Tcotidiane and Jean Didier,
 
 import os
 from os import listdir
@@ -234,7 +234,7 @@ class ftp_controller:
         self.bytes_downloaded = 0
         #Check if the file is already present in local directory
         if(isfile(ftp_file_name)):
-            if(replace_command(ftp_file_name, 'File exists in destination folder') is False):
+            if(replace_command(ftp_file_name, 'File exists in destination folder') == False):
                 return
         #Try to open file, if fails return
         try:

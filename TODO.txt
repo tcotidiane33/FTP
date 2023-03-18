@@ -1,5 +1,5 @@
 TASK                                                                                    STATUS          PRIORITY              
-############################################################################################################################# 
+###Tcotidiane33############################################################################################################################ 
 ->Implement drag and drop using TKDND                                                   |DONE           |NORMAL             |                     
 ->Someway to tell what directory you are in (maybe the title bar)                       |DONE           |NORMAL             |
 ->Display watermark if directory is empty                                               |DONE           |NORMAL             |

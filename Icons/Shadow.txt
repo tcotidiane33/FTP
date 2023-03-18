@@ -1,3 +1,4 @@
 x offset: 0
 y offset: 0
 base radius: 1
+border radius: 5

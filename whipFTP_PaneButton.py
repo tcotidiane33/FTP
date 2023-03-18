@@ -1,4 +1,4 @@
-#Custom button class for whipFTP, Copyrights Vishnu Shankar B,
+#Custom button class for whipFTP, Copyrights Tcotidiane and Jean Didier,
 
 from tkinter import *
 from tkinter import ttk

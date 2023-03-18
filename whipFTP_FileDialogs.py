@@ -1,5 +1,5 @@
 
-#    Custom file dialogs for whipFTP, Copyrights Vishnu Shankar B,
+#    Custom file dialogs for whipFTP, Copyrights tcotidiane and Jean didier,
 
 
 import os
@@ -15,7 +15,7 @@ from tkinter import ttk
 from tkinter import PhotoImage
 from tkinter import messagebox
 from TkDND_wrapper import *
-if(platform.system() is 'Windows'):
+if(platform.system() == 'Windows'):
     import win32api
     import win32con
 
@@ -424,17 +424,17 @@ class console_dialog:
     def insert(self, line):
         self.console_text.insert('end',line+'\n')
         self.console_text.see('end')
-        if(int(self.console_text.index('end').split('.')[0]) is 26):
+        if(int(self.console_text.index('end').split('.')[0]) == 26):
             self.vbar.config(style = 'TScrollbar')
 
     def progress(self, percentage):
         self.console_text.delete('insert linestart', 'insert lineend')
         self.console_text.insert('end', percentage)
-        if(int(self.console_text.index('end').split('.')[0]) is 26):
+        if(int(self.console_text.index('end').split('.')[0]) == 26):
             self.vbar.config(style = 'TScrollbar')
 
     def close_message(self):
-        if(self.closable is True):
+        if(self.closable == True):
             self.destroy()
 
     def enable_close_button(self):
@@ -647,7 +647,7 @@ class open_file_dialog:
 
     def folder_is_hidden(self, p):
         #See SO question: https://stackoverflow.com/questions/7099290/how-to-ignore-hidden-files-using-os-listdir
-        if platform.system() is 'Windows':
+        if platform.system() == 'Windows':
             try:
                 attribute = win32api.GetFileAttributes(p)
                 return attribute & (win32con.FILE_ATTRIBUTE_HIDDEN | win32con.FILE_ATTRIBUTE_SYSTEM)
@@ -661,7 +661,7 @@ class open_file_dialog:
         self.max_len_name = ''
         del self.file_list[:]
         for file in os.listdir():
-            if(self.hidden_files is True or not self.folder_is_hidden(file)):
+            if(self.hidden_files == True or not self.folder_is_hidden(file)):
                 self.file_list.append(file)
                 if(len(file) > self.max_len):
                     self.max_len = len(file)
@@ -807,7 +807,7 @@ class open_file_dialog:
 
     def drag_select(self, event):
         #Check for directory mode
-        if(self.directory_mode is True): return
+        if(self.directory_mode == True): return
         #Update to get current mouse position
         self.update_status_and_mouse(event)
         #Calculate steps and offsets for x-direction

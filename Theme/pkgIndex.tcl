@@ -5,6 +5,7 @@
 #
 # To use this automatically within tile, the tile-using application should
 # use tile::availableThemes and tile::setTheme 
+#
 
 if {![file isdirectory [file join $dir Arc]]} { return }
 if {![package vsatisfies [package provide Tcl] 8.6]} { return }

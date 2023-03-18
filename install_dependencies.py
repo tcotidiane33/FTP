@@ -4,6 +4,7 @@
 #   pramiko
 #   psutil (v3.4.2 for win XP)
 #   pypiwin32 (219 for win XP)
+#   sudo apt-get install python3-tk [on Ubuntu]
 
 
 import os

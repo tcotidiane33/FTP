@@ -1,4 +1,4 @@
-#whipFTP, Copyrights Vishnu Shankar B,
+#whipFTP, Copyrights Tcotidiane and Jean Didier,
 
 import os
 from os import listdir

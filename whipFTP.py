@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-#    whipFTP, Copyrights Vishnu Shankar B
+#    whipFTP, Copyrights  Tcotidiane and Jean Didier
 #
 #    List of Tk extensions used:
 #        Arc theme (modified to red color and more styles were added) : https://wiki.tcl.tk/48689

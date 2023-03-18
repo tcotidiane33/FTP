@@ -1,6 +1,7 @@
 import platform
 import os
-if(platform.system() is 'Windows'):
+
+if(platform.system() == 'Windows'):
     import win32api
     import win32con
 
