@@ -21,6 +21,7 @@ from TkDND_wrapper import *
 import whipFTP_ToolbarButton as ToolbarButton
 import whipFTP_FileDialogs as Filedialogs
 import platform
+
 if(platform.system() == 'Windows'):
     import ctypes
 
@@ -1136,7 +1137,7 @@ class app:
 
 
     def info(self):
-        self.info_window = Filedialogs.about_dialog(self.master, 'About', self.whipFTP_icon, 'whipFTP v5.0', '© Vishnu Shankar') 
+        self.info_window = Filedialogs.about_dialog(self.master, 'About', self.whipFTP_icon, 'whipFTP v5.0', '© Tcotidiane Jean-Didier') 
 
 
 
